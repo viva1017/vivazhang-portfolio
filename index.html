@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viva Zhang | Marketing Strategy & Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --slate: #2D3436;
+            --sage: #9CAF88;
+            --periwinkle: #929BB8;
+            --light-bg: #F9F9F9;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: var(--slate); line-height: 1.6; }
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        
+        /* Hero Section */
+        header { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); }
+        h1 { font-size: 3.5rem; letter-spacing: -1px; margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.2rem; color: var(--periwinkle); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        .tagline { max-width: 600px; margin: 1.5rem auto; font-size: 1.1rem; color: #636e72; }
+
+        /* Sections */
+        section { padding: 80px 0; }
+        h2 { font-size: 2rem; margin-bottom: 2rem; border-left: 4px solid var(--sage); padding-left: 1rem; }
+
+        /* Grid Layouts */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { color: var(--sage); margin-bottom: 1rem; }
+
+        /* Skills Chips */
+        .skills-group { margin-bottom: 2rem; }
+        .chip { display: inline-block; background: #eee; padding: 5px 15px; border-radius: 20px; margin: 5px; font-size: 0.9rem; }
+
+        /* Footer/Contact */
+        footer { background: var(--slate); color: var(--white); padding: 40px 0; text-align: center; }
+        footer a { color: var(--periwinkle); text-decoration: none; font-weight: bold; }
+        
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <p class="subtitle">Viva (Yifei) Zhang</p>
+            <h1>Marketing Strategy | Consumer Insights</h1>
+            <p class="tagline">Columbia Business School student passionate about combining creativity, data, and global perspective to build impactful marketing strategies.</p>
+        </div>
+    </header>
+
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <p style="font-size: 1.2rem; max-width: 800px;">
+            I am a <strong>strategic communicator</strong> who bridges the gap between creativity and data. With a background in Media (NYU) and Marketing Science (Columbia), I bring a global perspective to AI-driven marketing and consumer analytics.
+        </p>
+    </section>
+
+    <section id="experience" class="container">
+        <h2>Experience Highlights</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Ogilvy (Audi Team)</h3>
+                <p><strong>Campaign Strategy & Coordination.</strong> Led storytelling initiatives for luxury automotive digital campaigns, ensuring brand consistency across global markets.</p>
+            </div>
+            <div class="card">
+                <h3>Xiaomi</h3>
+                <p><strong>Retail & Social Marketing.</strong> Managed KOL relationships and social strategies for major product launches, driving significant user engagement.</p>
+            </div>
+            <div class="card">
+                <h3>Equity Research</h3>
+                <p><strong>Data-Driven Insights.</strong> Conducted deep industry analysis and financial modeling to forecast market trends and consumer behavior.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <h2>Expertise</h2>
+        <div class="skills-group">
+            <p><strong>Strategy:</strong> <span class="chip">Market Research</span> <span class="chip">Consumer Segmentation</span> <span class="chip">Growth Funnels</span></p>
+            <p><strong>Analytics:</strong> <span class="chip">Python</span> <span class="chip">SQL</span> <span class="chip">Statistical Modeling</span> <span class="chip">Excel</span></p>
+            <p><strong>Design & Creative:</strong> <span class="chip">Photoshop</span> <span class="chip">Canva</span> <span class="chip">HTML/CSS</span></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Let's Connect</p>
+            <p>New York, NY | <a href="mailto:your-email@columbia.edu">Email Me</a></p>
+            <p><a href="https://www.linkedin.com/in/yifei-viva-zhang-9b1232271">LinkedIn Profile</a></p>
+            <br>
+            <p style="font-size: 0.8rem; opacity: 0.7;">Beyond work: K-pop dance performer & cross-cultural storyteller.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
