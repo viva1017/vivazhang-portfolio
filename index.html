@@ -1,104 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viva Zhang | Marketing Strategy & Analytics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --slate: #2D3436;
-            --sage: #9CAF88;
-            --periwinkle: #929BB8;
-            --light-bg: #F9F9F9;
-            --white: #FFFFFF;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viva Zhang | Strategy • Insights • Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --slate:#2D3436;
+      --sage:#9CAF88;
+      --peri:#929BB8;
+      --bg:#F9F9F9;
+      --white:#ffffff;
+      --muted:#5f6b6d;
+      --shadow:0 10px 30px rgba(0,0,0,.06);
+      --radius:16px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      background: radial-gradient(1200px 700px at 10% 0%, rgba(146,155,184,.20), transparent 55%),
+                  radial-gradient(1000px 600px at 90% 10%, rgba(156,175,136,.18), transparent 55%),
+                  var(--bg);
+      color:var(--slate);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 22px}
+    /* Top nav */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(180%) blur(14px);
+      background:rgba(249,249,249,.75);
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700;letter-spacing:-.3px}
+    .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--sage),var(--peri))}
+    .nav-links{display:flex;gap:16px;align-items:center}
+    .nav-links a{
+      font-size:.92rem;color:rgba(45,52,54,.78);
+      padding:8px 10px;border-radius:999px;
+      transition:background .2s ease,color .2s ease;
+    }
+    .nav-links a:hover{background:rgba(146,155,184,.15);color:var(--slate)}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      border:1px solid rgba(45,52,54,.15);
+      background:rgba(255,255,255,.8);
+      padding:10px 14px;border-radius:999px;
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+      font-weight:600;font-size:.95rem;
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(0,0,0,.08);background:#fff}
+    .btn.primary{
+      border:0;
+      color:#fff;
+      background:linear-gradient(135deg,var(--slate),#1f2324);
+    }
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(156,175,136,.14);
+      border:1px solid rgba(156,175,136,.25);
+      color:rgba(45,52,54,.9);
+      font-size:.86rem;
+      width:fit-content;
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: var(--slate); line-height: 1.6; }
-        
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-        
-        /* Hero Section */
-        header { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); }
-        h1 { font-size: 3.5rem; letter-spacing: -1px; margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.2rem; color: var(--periwinkle); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
-        .tagline { max-width: 600px; margin: 1.5rem auto; font-size: 1.1rem; color: #636e72; }
-
-        /* Sections */
-        section { padding: 80px 0; }
-        h2 { font-size: 2rem; margin-bottom: 2rem; border-left: 4px solid var(--sage); padding-left: 1rem; }
-
-        /* Grid Layouts */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .card { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease; }
-        .card:hover { transform: translateY(-5px); }
-        .card h3 { color: var(--sage); margin-bottom: 1rem; }
-
-        /* Skills Chips */
-        .skills-group { margin-bottom: 2rem; }
-        .chip { display: inline-block; background: #eee; padding: 5px 15px; border-radius: 20px; margin: 5px; font-size: 0.9rem; }
-
-        /* Footer/Contact */
-        footer { background: var(--slate); color: var(--white); padding: 40px 0; text-align: center; }
-        footer a { color: var(--periwinkle); text-decoration: none; font-weight: bold; }
-        
-        @media (max-width: 768px) { h1 { font-size: 2.5rem; } }
-    </style>
+    /* Hero */
+    header{padding:56px 0 34px}
+    .hero{
+      display:grid;grid-template-columns:1.2fr .8fr;gap:26px;
+      align-items:stretch;
+    }
+    .hero-card{
+      background:rgba(255,255,255,.75);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute;inset:-2px;
+      background:linear-gradient(135deg, rgba(156,175,136,.35), rgba(146,155,184,.35));
+      filter:blur(30px);
+      opacity:.45;
+      z-index:0;
+    }
+    .hero-card > *{position:relative;z-index:1}
+    .kicker{font-size:.9rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(146,155,184,.95);font-weight:700}
+    h1{font-size:3.15rem;letter-spacing:-1.3px;line-height:1.05;margin:.4rem 0 .75rem}
+    .subtitle{font-size:1.05rem;color:rgba(45,52,54,.74);max-width:60ch}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .mini{
+      display:flex;flex-direction:column;justify-content:space-between;
+      padding:22px;
+    }
+    .mini h3{font-size:1.15rem;letter-spacing:-.3px;margin-bottom:10px}
+    .mini p{color:rgba(45,52,54,.72)}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+    .stat{
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:14px;
+      padding:14px;
+    }
+    .stat b{display:block;font-size:1.15rem}
+    .stat span{font-size:.85rem;color:rgba(45,52,54,.65)}
+    section{padding:44px 0}
+    .section-title{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:18px
+    }
+    h2{
+      font-size:1.8rem;letter-spacing:-.6px
+    }
+    .section-desc{color:rgba(45,52,54,.68);max-width:70ch}
+    /* Cards & grids */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{
+      grid-column:span 6;
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.08)}
+    .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+    .role{font-weight:700;letter-spacing:-.2px}
+    .meta{font-size:.92rem;color:rgba(45,52,54,.66)}
+    .tag{font-size:.78rem;padding:6px 10px;border-radius:999px;background:rgba(146,155,184,.14);border:1px solid rgba(146,155,184,.22)}
+    .card p{margin-top:10px;color:rgba(45,52,54,.76)}
+    /* Accordion details */
+    details{
+      margin-top:12px;
+      border-top:1px dashed rgba(0,0,0,.10);
+      padding-top:12px;
+    }
+    summary{
+      list-style:none;cursor:pointer;
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      font-weight:700;color:rgba(45,52,54,.88)
+    }
+    summary::-webkit-details-marker{display:none}
+    .chev{
+      width:28px;height:28px;border-radius:999px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(156,175,136,.16);
+      border:1px solid rgba(156,175,136,.22);
+      transition:transform .2s ease;
+      flex:0 0 auto;
+    }
+    details[open] .chev{transform:rotate(180deg)}
+    ul{margin:10px 0 0 18px}
+    li{margin:6px 0;color:rgba(45,52,54,.76)}
+    .chips{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-size:.82rem;padding:6px 10px;border-radius:999px;background:#eef0f1;border:1px solid rgba(0,0,0,.06)}
+    /* Projects */
+    .project{grid-column:span 4}
+    /* Skills */
+    .skills{grid-column:span 12;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .skills .card{grid-column:auto}
+    /* Footer */
+    footer{padding:44px 0}
+    .footer{
+      background:rgba(45,52,54,.95);
+      color:#fff;
+      border-radius:var(--radius);
+      padding:24px;
+      display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;
+      box-shadow:var(--shadow);
+    }
+    .footer a{color:rgba(146,155,184,.95);font-weight:700}
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .card{grid-column:span 12}
+      .project{grid-column:span 12}
+      .skills{grid-template-columns:1fr}
+      h1{font-size:2.35rem}
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <p class="subtitle">Viva (Yifei) Zhang</p>
-            <h1>Marketing Strategy | Consumer Insights</h1>
-            <p class="tagline">Columbia Business School student passionate about combining creativity, data, and global perspective to build impactful marketing strategies.</p>
-        </div>
-    </header>
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><span class="dot"></span> Viva Zhang</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#work">Selected Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact" class="btn">Contact</a>
+      </div>
+    </div>
+  </div>
 
-    <section id="about" class="container">
-        <h2>About Me</h2>
-        <p style="font-size: 1.2rem; max-width: 800px;">
-            I am a <strong>strategic communicator</strong> who bridges the gap between creativity and data. With a background in Media (NYU) and Marketing Science (Columbia), I bring a global perspective to AI-driven marketing and consumer analytics.
+  <header class="container">
+    <div class="hero">
+      <div class="hero-card">
+        <div class="pill">NYU creative roots • CBS marketing science</div>
+        <div class="kicker" style="margin-top:12px;">Viva (Yifei) Zhang</div>
+        <h1>Strategy, insights, and analytics—built with taste.</h1>
+        <p class="subtitle">
+          I bridge cultural storytelling with data-driven precision—helping brands and products become both measurable and memorable.
         </p>
-    </section>
-
-    <section id="experience" class="container">
-        <h2>Experience Highlights</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Ogilvy (Audi Team)</h3>
-                <p><strong>Campaign Strategy & Coordination.</strong> Led storytelling initiatives for luxury automotive digital campaigns, ensuring brand consistency across global markets.</p>
-            </div>
-            <div class="card">
-                <h3>Xiaomi</h3>
-                <p><strong>Retail & Social Marketing.</strong> Managed KOL relationships and social strategies for major product launches, driving significant user engagement.</p>
-            </div>
-            <div class="card">
-                <h3>Equity Research</h3>
-                <p><strong>Data-Driven Insights.</strong> Conducted deep industry analysis and financial modeling to forecast market trends and consumer behavior.</p>
-            </div>
+        <div class="cta">
+          <a class="btn primary" href="#work">View Selected Work</a>
+          <a class="btn" href="https://www.linkedin.com/in/yifei-viva-zhang-9b1232271" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="mailto:YifZhang27@gsb.columbia.edu">Email</a>
         </div>
-    </section>
-
-    <section id="skills" class="container">
-        <h2>Expertise</h2>
-        <div class="skills-group">
-            <p><strong>Strategy:</strong> <span class="chip">Market Research</span> <span class="chip">Consumer Segmentation</span> <span class="chip">Growth Funnels</span></p>
-            <p><strong>Analytics:</strong> <span class="chip">Python</span> <span class="chip">SQL</span> <span class="chip">Statistical Modeling</span> <span class="chip">Excel</span></p>
-            <p><strong>Design & Creative:</strong> <span class="chip">Photoshop</span> <span class="chip">Canva</span> <span class="chip">HTML/CSS</span></p>
+        <div class="stats">
+          <div class="stat"><b>Columbia</b><span>MS Marketing Science</span></div>
+          <div class="stat"><b>NYU</b><span>Media + Econ</span></div>
+          <div class="stat"><b>Strength</b><span>Creativity × Data</span></div>
+          <div class="stat"><b>Focus</b><span>Marketing Strategy</span></div>
         </div>
-    </section>
+      </div>
 
-    <footer>
-        <div class="container">
-            <p>Let's Connect</p>
-            <p>New York, NY | <a href="mailto:your-email@columbia.edu">Email Me</a></p>
-            <p><a href="https://www.linkedin.com/in/yifei-viva-zhang-9b1232271">LinkedIn Profile</a></p>
-            <br>
-            <p style="font-size: 0.8rem; opacity: 0.7;">Beyond work: K-pop dance performer & cross-cultural storyteller.</p>
+      <div class="hero-card mini">
+        <div>
+          <h3>What I’m optimizing for</h3>
+          <p>
+            Roles in <b>Marketing Strategy</b>, <b>Consulting</b>, and <b>AI-driven Marketing</b>—where I can turn messy signals into clear decisions.
+          </p>
         </div>
-    </footer>
+        <div class="chips">
+          <span class="chip">Consumer Insights</span>
+          <span class="chip">Segmentation</span>
+          <span class="chip">Growth</span>
+          <span class="chip">AI & Analytics</span>
+          <span class="chip">Brand Strategy</span>
+        </div>
+      </div>
+    </div>
+  </header>
 
+  <section id="about" class="container">
+    <div class="section-title">
+      <h2>About</h2>
+      <p class="section-desc">A strategic communicator connecting human behavior and algorithmic insights.</p>
+    </div>
+    <div class="card" style="grid-column: span 12;">
+      <p style="font-size:1.08rem;max-width:90ch;">
+        With a foundation in <b>Media & Culture (NYU)</b> and advanced training in <b>Marketing Science (Columbia)</b>,
+        I translate complex data into clear narratives and actionable strategy. I’ve supported brand work for <b>Audi</b> at Ogilvy,
+        built retail marketing programs at <b>Xiaomi</b>, and done rigorous analysis in <b>equity research</b>.
+        I care about strategy that is <b>measurable</b>—and still feels <b>human</b>.
+      </p>
+    </div>
+  </section>
+
+  <section id="experience" class="container">
+    <div class="section-title">
+      <h2>Experience</h2>
+      <p class="section-desc">Click “Details” to expand each role.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <div class="role">Ogilvy — Account Executive Intern (Audi)</div>
+            <div class="meta">Beijing • Spring & Summer 2025</div>
+          </div>
+          <span class="tag">Brand + Strategy</span>
+        </div>
+        <p>Cross-functional coordination + competitor intelligence to support premium EV storytelling and delivery.</p>
+        <details>
+          <summary>Details <span class="chev">⌄</span></summary>
+          <ul>
+            <li>Produced monthly reports on <b>16 EV competitors</b>, tracking campaigns, launches, and digital presence.</li>
+            <li>Coordinated creative/strategy/partners to ensure <b>100% on-time asset delivery</b>.</li>
+            <li>Supported proposals with category research, consumer insights, scripts, and talent/KOL suggestions.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Competitive analysis</span><span class="chip">IMC</span><span class="chip">Project management</span><span class="chip">Luxury positioning</span>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <div class="role">Xiaomi — Marketing Intern (Retail Marketing)</div>
+            <div class="meta">Beijing • Summer 2024</div>
+          </div>
+          <span class="tag">Growth</span>
+        </div>
+        <p>Weibo operations + influencer campaigns to turn product launches into social momentum.</p>
+        <details>
+          <summary>Details <span class="chev">⌄</span></summary>
+          <ul>
+            <li>Managed Weibo end-to-end: content planning, scheduling, compliance coordination, and community engagement.</li>
+            <li>Planned major launches and cross-IP collaborations; managed KOL campaigns with agencies.</li>
+            <li>Tracked exposure, engagement, and topic volume; supported regional branches with assets and timelines.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Social strategy</span><span class="chip">KOL/KOC</span><span class="chip">Launch marketing</span><span class="chip">Campaign tracking</span>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <div class="role">GF Securities — Equity Research Intern</div>
+            <div class="meta">Beijing • Summer 2023</div>
+          </div>
+          <span class="tag">Analytics</span>
+        </div>
+        <p>Industry research + data visualization to translate market signals into investment-relevant insights.</p>
+        <details>
+          <summary>Details <span class="chev">⌄</span></summary>
+          <ul>
+            <li>Collected and analyzed company data; co-authored industry/company reports and daily media/AI news briefs.</li>
+            <li>Retrieved financial data from databases, cleaned in Excel, and built charts in PowerPoint.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Research</span><span class="chip">Excel modeling</span><span class="chip">Visualization</span><span class="chip">Media & AI sector</span>
+          </div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div>
+            <div class="role">Dark Horse Culture Media — Movie Marketing Intern</div>
+            <div class="meta">Beijing • Summer 2022</div>
+          </div>
+          <span class="tag">Creative</span>
+        </div>
+        <p>Premiere marketing + short-form content strategy to drive attention and audience conversation.</p>
+        <details>
+          <summary>Details <span class="chev">⌄</span></summary>
+          <ul>
+            <li>Planned embedded marketing for <i>The Fallen Bridge</i>, generating multiple trending topics on Weibo/Chinese TikTok.</li>
+            <li>Wrote captions, interview outlines, Q&As; developed behind-the-scenes and celebrity profile concepts.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Copywriting</span><span class="chip">TikTok strategy</span><span class="chip">Entertainment marketing</span>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="container">
+    <div class="section-title">
+      <h2>Selected Work</h2>
+      <p class="section-desc">Short, consulting-style snapshots. (You can replace placeholders with your real projects.)</p>
+    </div>
+
+    <div class="grid">
+      <div class="card project">
+        <div class="role">Segmentation Sprint</div>
+        <div class="meta">Customer insights • Clustering • Persona</div>
+        <p>Built a segmentation approach and translated clusters into actionable targeting and messaging directions.</p>
+        <details>
+          <summary>Details <span class="chev">⌄</span></summary>
+          <ul>
+            <li>Defined segmentation attributes (behavioral + psychographic) and created a decision-ready matrix.</li>
+            <li>Converted findings into 2–3 sharp personas with channel strategy implications.</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="card project">
+        <div class="role">Growth Funnel Diagnosis</div>
+        <div class="meta">AARRR • Experiments • KPI</div>
+        <p>Mapped funnel friction points and proposed testable experiments to increase conversion and retention.</p>
+        <details>
+          <summary>Details <span class="chev">⌄</span></summary>
+          <ul>
+            <li>Identified the highest-leverage drop-off points and designed 3 experiments with success metrics.</li>
+            <li>Prioritized via impact × effort and built a simple tracking plan.</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="card project">
+        <div class="role">AI in Marketing Memo</div>
+        <div class="meta">Product thinking • Strategy • Ethics</div>
+        <p>Evaluated where AI adds durable value vs. “AI stickers,” and translated insights into product strategy.</p>
+        <details>
+          <summary>Details <span class="chev">⌄</span></summary>
+          <ul>
+            <li>Outlined system-vs-tool differentiation and implications for positioning and defensibility.</li>
+            <li>Proposed a roadmap of AI-native features tied to user workflow and data gravity.</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="container">
+    <div class="section-title">
+      <h2>Skills</h2>
+      <p class="section-desc">A practical toolkit: strategy + analytics + creative execution.</p>
+    </div>
+
+    <div class="skills">
+      <div class="card">
+        <div class="role">Strategy & Marketing</div>
+        <div class="chips">
+          <span class="chip">Consumer Insights</span>
+          <span class="chip">Brand Strategy</span>
+          <span class="chip">Market Research</span>
+          <span class="chip">IMC</span>
+          <span class="chip">Growth Experiments</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="role">Data & Analytics</div>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Statistical Modeling</span>
+          <span class="chip">Excel</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="role">Creative & Tools</div>
+        <div class="chips">
+          <span class="chip">PowerPoint</span>
+          <span class="chip">Canva</span>
+          <span class="chip">Photoshop</span>
+          <span class="chip">HTML/CSS</span>
+          <span class="chip">CapCut</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="container">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p class="section-desc">Open to opportunities in marketing strategy, consulting, and AI-driven growth.</p>
+    </div>
+    <div class="card" style="grid-column: span 12;">
+      <p><b>Email:</b> <a href="mailto:YifZhang27@gsb.columbia.edu">YifZhang27@gsb.columbia.edu</a></p>
+      <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/yifei-viva-zhang-9b1232271" target="_blank" rel="noreferrer">linkedin.com/in/yifei-viva-zhang-9b1232271</a></p>
+      <p><b>Location:</b> New York</p>
+      <p style="margin-top:10px;color:rgba(45,52,54,.70);">
+        Beyond work: K-pop dance performer & cross-cultural storyteller.
+      </p>
+    </div>
+  </section>
+
+  <footer class="container">
+    <div class="footer">
+      <div>
+        <div style="font-weight:800;letter-spacing:-.3px;">Viva Zhang</div>
+        <div style="opacity:.8">Strategy • Insights • Analytics</div>
+      </div>
+      <div style="opacity:.85">© <span id="year"></span> • Built on GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
